@@ -515,6 +515,21 @@ pub trait Iterator {
     /// assert_eq!((2, 'o'), zipper[2]);
     /// ```
     ///
+    /// Depending on the syntax of each iterator, it may be more readable to use
+    /// [`std::iter::zip`]:
+    /// ```
+    /// # use std::iter::zip;
+    /// let a = [1, 2, 3];
+    /// let b = [2, 3, 4];
+    ///
+    /// let mut zipped = zip(a, b);
+    ///
+    /// assert_eq!(zipped.next(), Some((1, 2)));
+    /// assert_eq!(zipped.next(), Some((2, 3)));
+    /// assert_eq!(zipped.next(), Some((3, 4)));
+    /// assert_eq!(zipped.next(), None);
+    /// ```
+    ///
     /// [`enumerate`]: Iterator::enumerate
     /// [`next`]: Iterator::next
     #[inline]
